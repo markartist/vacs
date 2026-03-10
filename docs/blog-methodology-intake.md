@@ -1,6 +1,6 @@
 # Blog Methodology Intake (Draft)
 
-Purpose: define how upcoming SEO/content artifacts are captured and prepared before implementation.
+Purpose: define how upcoming SEO/content artifacts are captured and prepared as blueprint inputs and blog-derivative structures.
 
 Status: draft and pending stakeholder artifact review.
 
@@ -14,6 +14,11 @@ Status: draft and pending stakeholder artifact review.
 - Narrative/process documentation from SEO/content teams
 - Spreadsheet/template structure for blog format and checks
 - Supporting references, examples, and context notes
+
+## Blueprint Mapping Intent
+- Evidence from artifacts maps to blueprint evidence inputs.
+- Strategic guidance maps to blueprint decision records.
+- Blog structures map to section-based derivative output contracts.
 
 ## Working Rules
 - Preserve raw artifacts as source of truth.

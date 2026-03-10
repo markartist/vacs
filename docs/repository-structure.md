@@ -18,6 +18,7 @@ governance/
   research/
     methodology-intake/  # Narrative/spreadsheet/reference intake for workflow formalization
 docs/
+  content-blueprint-model.md
   blog-methodology-intake.md
   methodology-translation-path.md
 scripts/

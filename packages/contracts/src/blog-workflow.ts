@@ -1,10 +1,4 @@
-export type DraftStatus = "draft";
-
-export interface DraftContractMeta {
-  status: DraftStatus;
-  source: "pending_artifact_review";
-  notes?: string;
-}
+import type { DraftContractMeta } from "./content-blueprint";
 
 export interface BlogImageSlot {
   slotId: string;
@@ -33,6 +27,7 @@ export interface BlogTemplateStructure {
   templateId: string;
   templateName: string;
   channel: "blog";
+  blueprintSectionRefs?: string[];
   lifecycle: DraftContractMeta;
   audienceHint?: string;
   toneHint?: string;
@@ -41,6 +36,7 @@ export interface BlogTemplateStructure {
 
 export interface BlogBriefInputStructure {
   briefId: string;
+  blueprintId: string;
   propertyId: string;
   requestedBy: string;
   campaignId?: string;
@@ -66,6 +62,7 @@ export interface BlogOutputSection {
 
 export interface BlogOutputPackageStructure {
   outputId: string;
+  blueprintId: string;
   briefId: string;
   templateId: string;
   status: "draft" | "review";

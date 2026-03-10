@@ -8,6 +8,7 @@
     "./session": "./src/session.ts",
     "./navigation": "./src/navigation.ts",
     "./content-job": "./src/content-job.ts",
+    "./content-blueprint": "./src/content-blueprint.ts",
     "./blog-workflow": "./src/blog-workflow.ts"
   },
   "types": "./src/index.ts",

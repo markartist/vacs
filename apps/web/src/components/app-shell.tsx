@@ -8,9 +8,14 @@ import { logout } from "../lib/api";
 const navItems = [
   { href: "/app/dashboard", label: "Dashboard", description: "Operational summary and status indicators." },
   {
+    href: "/app/content-blueprint",
+    label: "Content Blueprint",
+    description: "Central strategic record (evidence, decisions, and section map) for all channels.",
+  },
+  {
     href: "/app/blog-workflow",
     label: "Blog Workflow",
-    description: "Methodology intake and structure preparation for long-form content.",
+    description: "Blueprint-derived long-form blog planning and structure scaffolding.",
   },
   { href: "/app/content-jobs", label: "Content Jobs", description: "Queued, running, and reviewed generation jobs." },
   { href: "/app/prompts", label: "Prompts", description: "Prompt assets and controlled versions." },

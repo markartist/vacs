@@ -8,6 +8,7 @@ The repository is in **setup/preparation mode** with a working authenticated app
 - Signed session cookies backed by persistent D1 sessions
 - Protected routes
 - Internal reusable app shell UI with scaffold module destinations
+- Content Blueprint preparation module as central system-of-record
 - Blog workflow preparation module and methodology intake area
 
 The content-generation pipeline is intentionally not implemented yet.
@@ -18,10 +19,10 @@ The content-generation pipeline is intentionally not implemented yet.
 ## Architecture Direction (High-Level)
 Modular stage model (directional, not final):
 1. Source context normalization
-2. Channel-specific draft generation
-3. SEO/policy logic passes
-4. Human-quality refinement
-5. Evaluation and review
+2. Content Blueprint construction (evidence + strategy + section plan)
+3. Channel-specific section assembly from blueprint
+4. SEO/policy logic passes
+5. Human-quality refinement and evaluation
 
 ## Top-Level Structure
 - `apps/`
@@ -46,6 +47,7 @@ Modular stage model (directional, not final):
 - `/auth/logout` (api)
 - `/app` and `/app/dashboard` protected APIs
 - `/app/*` web shell protected by session check middleware
+- `/app/content-blueprint` scaffold module for central record preparation
 - `/app/blog-workflow` scaffold module for first workflow preparation
 
 ## Methodology Intake And Translation Prep
@@ -56,7 +58,10 @@ Modular stage model (directional, not final):
   - `governance/research/methodology-intake/mapping-notes/`
 - Draft blog workflow contracts:
   - `packages/contracts/src/blog-workflow.ts`
+- Draft central blueprint contracts:
+  - `packages/contracts/src/content-blueprint.ts`
 - Translation docs:
+  - `docs/content-blueprint-model.md`
   - `docs/blog-methodology-intake.md`
   - `docs/methodology-translation-path.md`
 
