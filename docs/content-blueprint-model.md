@@ -38,3 +38,8 @@ All derived outputs should use section-based structures, not monolithic document
 ## Draft Translation Layer
 - `packages/core/src/blueprint-intake.ts`
 - `docs/spreadsheet-blueprint-translation-layer.md`
+
+## Reconciliation Readiness
+- `governance/plans/blueprint-reconciliation-plan.md`
+- `governance/research/methodology-intake/mapping-notes/reconciliation-matrix-template.md`
+- `governance/research/methodology-intake/references/riverbend-blueprint-example-record.draft.json`

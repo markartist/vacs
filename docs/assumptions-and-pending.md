@@ -26,3 +26,5 @@
   - social execution sub-structures
   - schema object model
   - workflow stage/status normalization
+- Reconciliation pending:
+  - Alex narrative confirmation across spreadsheet + mapping + blueprint model

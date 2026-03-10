@@ -1,49 +1,78 @@
+const riverbendExample = {
+  recordLabel: "Riverbend / Home Page / Blueprint Draft",
+  evidence: [
+    "Keyword Research tab: branded + unbranded terms, local volume, KD, GSC clicks/impressions",
+    "GBP Search Data tab: top property discovery queries and counts",
+    "GSC Data tab: clicks, impressions, CTR, average position",
+    "Property context: League City location, amenities, and neighborhood references",
+  ],
+  strategy: [
+    "SEO emphasis: branded keyword plus unbranded apartment intent terms",
+    "Positioning: pet-friendly modern living near UTMB and I-45",
+    "Messaging direction: comfort, convenience, and connected location",
+    "Channel intent: website page content + blog + social + ad support",
+  ],
+  plannedSections: [
+    "Metadata section (SEO title + description)",
+    "Heading section (H1/H2/H3 structure)",
+    "Long on-page description section",
+    "Schema/internal-link guidance section",
+  ],
+  mediaGuidance: [
+    "Alt-tag cluster for exterior, leasing office, pool, pet spaces, social spaces",
+    "Section-linked media intent for amenities and lifestyle visual support",
+    "Social media visual themes (reels/carousels/stories) treated as derivative planning notes",
+  ],
+  derivativeOpportunities: [
+    "Blog long-form topic package",
+    "Social caption + reel/carousel/story package",
+    "Ad copy package",
+    "Metadata and website recommendation package",
+  ],
+};
+
+const reviewBuckets = [
+  {
+    title: "Fields Confirmed (Provisional)",
+    items: [
+      "Evidence block pattern from Keyword/GBP/GSC tabs",
+      "Strategy decisions from branded/unbranded/focus keyword planning",
+      "Section-level planning from SEO title/description + H1/H2/H3 + long description",
+      "Image guidance from image alt-tags and social visual notes",
+      "Derivative opportunity pattern across blog/social/ads/metadata",
+    ],
+  },
+  {
+    title: "Likely Revisions Needed",
+    items: [
+      "Typed evidence metrics for CTR/KD/volume/position",
+      "Explicit separation of page-level website copy vs GBP copy as distinct derivatives",
+      "Structured schema-markup modeling beyond plain-text fields",
+    ],
+  },
+  {
+    title: "Additional Fields / States Needed",
+    items: [
+      "Workflow states for strategy review, editorial review, and approval handoffs",
+      "Channel execution sub-structures for social assets (reels/carousels/hashtags/location tags)",
+      "Operational provenance fields for spreadsheet tab/row source tracking",
+    ],
+  },
+  {
+    title: "Operational Artifacts vs True System Inputs",
+    items: [
+      "Operational artifacts: sample ad copy blocks, social post formatting examples, workbook-specific helper columns",
+      "True system inputs: evidence metrics, strategic decisions, section objectives, media intent, channel targets",
+    ],
+  },
+];
+
 const sectionGroups = [
-  {
-    title: "Evidence",
-    items: [
-      "Keyword research rows (SEMrush, local volume, KD, clicks/impressions)",
-      "GBP query trends and ranking terms",
-      "GSC query performance (clicks, impressions, CTR, position)",
-      "Property and page context references",
-    ],
-  },
-  {
-    title: "Strategy",
-    items: [
-      "Branded and unbranded keyword prioritization",
-      "Audience and location framing decisions",
-      "Messaging and SEO focus decisions",
-      "Channel target selection for derivative assets",
-    ],
-  },
-  {
-    title: "Planned Sections",
-    items: [
-      "Section-level heading plan (H1/H2/H3)",
-      "On-page and metadata section objectives",
-      "Schema and internal-link guidance placeholders",
-      "Section ordering and required/optional status",
-    ],
-  },
-  {
-    title: "Image / Media Guidance",
-    items: [
-      "Alt-tag and visual intent notes",
-      "Placement references tied to section IDs",
-      "Format/aspect-ratio hints",
-      "Source preference and licensing notes",
-    ],
-  },
-  {
-    title: "Derivative Opportunities",
-    items: [
-      "Blog package opportunity",
-      "Social package opportunity",
-      "Ad copy opportunity",
-      "Metadata and website recommendation opportunities",
-    ],
-  },
+  { title: "Evidence", items: riverbendExample.evidence },
+  { title: "Strategy", items: riverbendExample.strategy },
+  { title: "Planned Sections", items: riverbendExample.plannedSections },
+  { title: "Image / Media Guidance", items: riverbendExample.mediaGuidance },
+  { title: "Derivative Opportunities", items: riverbendExample.derivativeOpportunities },
 ];
 
 export default function ContentBlueprintPage() {
@@ -55,10 +84,36 @@ export default function ContentBlueprintPage() {
           Scaffold view for blueprint records as the system of record. This page prepares structure only and does not
           generate content.
         </p>
+        <div className="module-note" style={{ marginTop: 12 }}>
+          Review Sample: {riverbendExample.recordLabel}
+        </div>
       </section>
 
       <div className="card-grid">
         {sectionGroups.map((group) => (
+          <article className="card" key={group.title}>
+            <h3>{group.title}</h3>
+            <ul style={{ margin: "8px 0 0 18px", padding: 0, color: "#4c607a" }}>
+              {group.items.map((item) => (
+                <li key={item} style={{ marginBottom: 6 }}>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+
+      <section className="module-shell" style={{ marginTop: 14 }}>
+        <h2 style={{ margin: 0, color: "#143256" }}>Reconciliation Review Buckets</h2>
+        <p className="module-description">
+          Prepared for upcoming spreadsheet + mapping + narrative reconciliation. These buckets are review-oriented and
+          intentionally draft.
+        </p>
+      </section>
+
+      <div className="card-grid">
+        {reviewBuckets.map((group) => (
           <article className="card" key={group.title}>
             <h3>{group.title}</h3>
             <ul style={{ margin: "8px 0 0 18px", padding: 0, color: "#4c607a" }}>

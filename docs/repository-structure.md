@@ -15,6 +15,7 @@ governance/
   decisions/
   architecture/
   plans/
+    blueprint-reconciliation-plan.md
   research/
     methodology-intake/  # Narrative/spreadsheet/reference intake for workflow formalization
 docs/

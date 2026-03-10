@@ -1,0 +1,35 @@
+{
+  "status": "draft",
+  "purpose": "review-only example record scaffold derived from Riverbend spreadsheet methodology",
+  "recordLabel": "Riverbend / Home Page / Blueprint Draft",
+  "evidence": [
+    "Keyword evidence rows from SEMrush/GBP/GSC tabs",
+    "Property and location context from workflow tab"
+  ],
+  "strategy": [
+    "Branded + unbranded keyword prioritization",
+    "Audience/location positioning guidance",
+    "Channel intent across blog/social/ads/metadata"
+  ],
+  "plannedSections": [
+    "Metadata (SEO title + description)",
+    "Heading structure (H1/H2/H3)",
+    "Long on-page content section",
+    "Schema/internal-link planning"
+  ],
+  "imageMediaGuidance": [
+    "Image alt-tag cluster",
+    "Visual intent notes from social planning fields"
+  ],
+  "derivativeOpportunities": [
+    "Blog",
+    "Social",
+    "Ads",
+    "Metadata",
+    "Website recommendations"
+  ],
+  "notes": [
+    "Not a finalized schema",
+    "Pending reconciliation with Alex narrative"
+  ]
+}

@@ -62,6 +62,10 @@ Modular stage model (directional, not final):
   - `packages/contracts/src/content-blueprint.ts`
 - Draft translation layer:
   - `packages/core/src/blueprint-intake.ts`
+- Reconciliation scaffolding:
+  - `governance/plans/blueprint-reconciliation-plan.md`
+  - `governance/research/methodology-intake/mapping-notes/reconciliation-matrix-template.md`
+  - `governance/research/methodology-intake/references/riverbend-blueprint-example-record.draft.json`
 - Translation docs:
   - `docs/content-blueprint-model.md`
   - `docs/blog-methodology-intake.md`
