@@ -10,6 +10,7 @@
     "./content-job": "./src/content-job.ts",
     "./content-blueprint": "./src/content-blueprint.ts",
     "./blog-template": "./src/blog-template.ts",
+    "./blog-draft": "./src/blog-draft.ts",
     "./blog-workflow": "./src/blog-workflow.ts"
   },
   "types": "./src/index.ts",

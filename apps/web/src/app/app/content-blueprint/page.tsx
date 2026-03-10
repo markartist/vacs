@@ -1,3 +1,5 @@
+import { BlueprintBlogDraftWorkbench } from "../../../components/blueprint-blog-draft-workbench";
+
 const riverbendExample = {
   recordLabel: "Riverbend / Home Page / Blueprint Draft",
   evidence: [
@@ -136,6 +138,8 @@ export default function ContentBlueprintPage() {
           </article>
         </div>
       </section>
+
+      <BlueprintBlogDraftWorkbench />
 
       <section className="module-shell" style={{ marginTop: 14 }}>
         <h2 style={{ margin: 0, color: "#143256" }}>Reconciliation Review Buckets</h2>

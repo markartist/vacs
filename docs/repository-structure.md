@@ -21,6 +21,7 @@ governance/
 docs/
   content-blueprint-model.md
   blog-template-library.md
+  blog-draft-pilot-lifecycle.md
   blog-methodology-intake.md
   methodology-translation-path.md
   spreadsheet-blueprint-translation-layer.md

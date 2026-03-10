@@ -10,3 +10,5 @@ Status: preparation mode with draft translation scaffolding.
   - Not a production import pipeline
 - `src/template-library/blog/library.ts`
   - Draft in-repo blog template library scaffold for blueprint-linked blog structure review
+- `src/pilot/blog-draft-pilot.ts`
+  - Draft pilot object scaffolding for a template-applied blog draft and lifecycle sequence

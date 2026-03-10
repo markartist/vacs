@@ -34,6 +34,7 @@ All derived outputs should use section-based structures, not monolithic document
 ## Blog Template Linkage (Draft)
 - Blueprint review scaffolding supports referencing a blog template ID.
 - Blog template contracts are defined in `packages/contracts/src/blog-template.ts`.
+- Pilot blog draft object contracts are defined in `packages/contracts/src/blog-draft.ts`.
 
 ## Current Contract Location
 - `packages/contracts/src/content-blueprint.ts`

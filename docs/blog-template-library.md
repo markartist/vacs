@@ -35,3 +35,9 @@ Status: draft, no generation behavior.
 - No auto-generated copy
 - No prompt orchestration
 - No publishing pipeline
+
+## Pilot Blog Draft Linkage
+- Draft object contract for template-applied blueprint output:
+  - `packages/contracts/src/blog-draft.ts`
+- Pilot lifecycle reference:
+  - `docs/blog-draft-pilot-lifecycle.md`

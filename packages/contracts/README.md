@@ -10,6 +10,7 @@ Status: scaffolded for setup/preparation mode.
 - `content-job.ts`: draft content-job structure for future orchestration modules
 - `content-blueprint.ts`: draft central blueprint model with explicit separation of evidence, strategy, and derivative assets
 - `blog-template.ts`: draft long-form blog template contract (global properties + section blocks)
+- `blog-draft.ts`: draft pilot blog output object contract (template-applied structure, lifecycle, placeholder metadata)
 - `blog-workflow.ts`: draft blog-specific derivative contracts linked to blueprint records
 
 These contracts are intentionally conservative and expected to evolve as formal data contracts are finalized.

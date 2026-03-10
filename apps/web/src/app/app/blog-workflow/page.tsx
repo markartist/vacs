@@ -19,6 +19,15 @@ const sectionStructureFields = [
 
 const templateLibraryPreview = ["blog-longform-standard-v1", "blog-neighborhood-focus-v1"];
 
+const draftLifecycle = [
+  "Blueprint created",
+  "Blueprint reviewed",
+  "Blog template selected",
+  "Blog draft generated",
+  "Draft reviewed/edited",
+  "Draft approved",
+];
+
 export default function BlogWorkflowPage() {
   return (
     <>
@@ -60,6 +69,16 @@ export default function BlogWorkflowPage() {
               </li>
             ))}
           </ul>
+        </article>
+        <article className="card">
+          <h3>Pilot Lifecycle</h3>
+          <ol style={{ margin: "8px 0 0 18px", padding: 0, color: "#4c607a" }}>
+            {draftLifecycle.map((item) => (
+              <li key={item} style={{ marginBottom: 6 }}>
+                {item}
+              </li>
+            ))}
+          </ol>
         </article>
       </div>
     </>

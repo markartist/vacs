@@ -11,6 +11,7 @@
 - Exact sequencing of pipeline stages
 - Final AI Gateway strategy
 - Blueprint and blog workflow translation path (structure prepared, rules not finalized)
+- Pilot blog draft lifecycle sequencing (prepared, not yet operationalized)
 
 ## Pending
 - Final data contracts
