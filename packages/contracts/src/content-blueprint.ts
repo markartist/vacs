@@ -60,6 +60,15 @@ export interface BlueprintImagePlacement {
   sourcePreference?: string;
 }
 
+export interface DerivativeOpportunity {
+  opportunityId: string;
+  channel: ContentChannel;
+  title: string;
+  objective?: string;
+  sourceSectionRefs?: string[];
+  notes?: string;
+}
+
 export type ContentChannel = "blog" | "social" | "email" | "ads" | "metadata" | "website-recommendations";
 
 export interface ContentBlueprintRecord {
@@ -77,6 +86,7 @@ export interface ContentBlueprintRecord {
   strategicDecisions: StrategicDecisionRecord[];
   sections: BlueprintSectionDefinition[];
   imagePlacements: BlueprintImagePlacement[];
+  derivativeOpportunities?: DerivativeOpportunity[];
   channelTargets: ContentChannel[];
   lifecycle: DraftContractMeta;
 }

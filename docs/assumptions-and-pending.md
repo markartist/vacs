@@ -21,3 +21,8 @@
 - Review/approval workflow
 - Evaluation criteria
 - Approved narrative and spreadsheet methodology artifacts for blueprint + blog workflow
+- Spreadsheet-driven contract gaps identified from Riverbend workbook:
+  - typed SEO metric model
+  - social execution sub-structures
+  - schema object model
+  - workflow stage/status normalization

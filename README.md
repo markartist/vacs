@@ -60,10 +60,13 @@ Modular stage model (directional, not final):
   - `packages/contracts/src/blog-workflow.ts`
 - Draft central blueprint contracts:
   - `packages/contracts/src/content-blueprint.ts`
+- Draft translation layer:
+  - `packages/core/src/blueprint-intake.ts`
 - Translation docs:
   - `docs/content-blueprint-model.md`
   - `docs/blog-methodology-intake.md`
   - `docs/methodology-translation-path.md`
+  - `docs/spreadsheet-blueprint-translation-layer.md`
 
 ## Setup Mode Notes
 - Email provider defaults to `console` in local mode; `resend` and `sendgrid` provider integrations are implemented for production configuration

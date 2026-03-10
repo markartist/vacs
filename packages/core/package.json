@@ -2,5 +2,16 @@
   "name": "@vacs/core",
   "version": "0.1.0",
   "private": true,
-  "type": "module"
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./blueprint-intake": "./src/blueprint-intake.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@vacs/contracts": "0.1.0"
+  }
 }

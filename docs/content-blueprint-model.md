@@ -34,3 +34,7 @@ All derived outputs should use section-based structures, not monolithic document
 ## Current Contract Location
 - `packages/contracts/src/content-blueprint.ts`
 - `packages/contracts/src/blog-workflow.ts` (blog-specific derivative structure)
+
+## Draft Translation Layer
+- `packages/core/src/blueprint-intake.ts`
+- `docs/spreadsheet-blueprint-translation-layer.md`
