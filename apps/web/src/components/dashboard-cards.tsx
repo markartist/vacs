@@ -1,5 +1,6 @@
 export function DashboardCards() {
   const cards = [
+    { title: "Blog Workflow", text: "Scaffold for methodology intake and blog-system preparation." },
     { title: "Content Jobs", text: "Queue and run status placeholders for future orchestration." },
     { title: "Prompts", text: "Prompt assets, templates, and version controls." },
     { title: "Policies", text: "SEO and brand policy rule evaluation placeholders." },

@@ -16,7 +16,10 @@ governance/
   architecture/
   plans/
   research/
+    methodology-intake/  # Narrative/spreadsheet/reference intake for workflow formalization
 docs/
+  blog-methodology-intake.md
+  methodology-translation-path.md
 scripts/
 ```
 

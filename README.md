@@ -8,6 +8,7 @@ The repository is in **setup/preparation mode** with a working authenticated app
 - Signed session cookies backed by persistent D1 sessions
 - Protected routes
 - Internal reusable app shell UI with scaffold module destinations
+- Blog workflow preparation module and methodology intake area
 
 The content-generation pipeline is intentionally not implemented yet.
 
@@ -45,6 +46,19 @@ Modular stage model (directional, not final):
 - `/auth/logout` (api)
 - `/app` and `/app/dashboard` protected APIs
 - `/app/*` web shell protected by session check middleware
+- `/app/blog-workflow` scaffold module for first workflow preparation
+
+## Methodology Intake And Translation Prep
+- Intake workspace:
+  - `governance/research/methodology-intake/narrative/`
+  - `governance/research/methodology-intake/spreadsheets/`
+  - `governance/research/methodology-intake/references/`
+  - `governance/research/methodology-intake/mapping-notes/`
+- Draft blog workflow contracts:
+  - `packages/contracts/src/blog-workflow.ts`
+- Translation docs:
+  - `docs/blog-methodology-intake.md`
+  - `docs/methodology-translation-path.md`
 
 ## Setup Mode Notes
 - Email provider defaults to `console` in local mode; `resend` and `sendgrid` provider integrations are implemented for production configuration

@@ -1,5 +1,6 @@
 export type VacsModuleId =
   | "dashboard"
+  | "blog-workflow"
   | "content-jobs"
   | "prompts"
   | "policies"

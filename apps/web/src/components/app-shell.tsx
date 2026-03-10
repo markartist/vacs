@@ -7,6 +7,11 @@ import { logout } from "../lib/api";
 
 const navItems = [
   { href: "/app/dashboard", label: "Dashboard", description: "Operational summary and status indicators." },
+  {
+    href: "/app/blog-workflow",
+    label: "Blog Workflow",
+    description: "Methodology intake and structure preparation for long-form content.",
+  },
   { href: "/app/content-jobs", label: "Content Jobs", description: "Queued, running, and reviewed generation jobs." },
   { href: "/app/prompts", label: "Prompts", description: "Prompt assets and controlled versions." },
   { href: "/app/policies", label: "Policies", description: "SEO and brand policy logic rules." },

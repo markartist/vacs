@@ -7,6 +7,8 @@ VACS is an internal Cloudflare-native platform for future AI-assisted marketing 
 - Magic-link login flow
 - Session enforcement model
 - Internal dashboard shell and navigation placeholders
+- Blog workflow scaffold area for first business workflow preparation
+- Methodology intake workspace for narrative/spreadsheet artifacts
 
 ## Not implemented in this phase
 - Content generation pipeline
