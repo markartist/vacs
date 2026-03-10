@@ -20,6 +20,7 @@ governance/
     methodology-intake/  # Narrative/spreadsheet/reference intake for workflow formalization
 docs/
   content-blueprint-model.md
+  blog-template-library.md
   blog-methodology-intake.md
   methodology-translation-path.md
   spreadsheet-blueprint-translation-layer.md

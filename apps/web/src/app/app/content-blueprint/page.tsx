@@ -75,6 +75,12 @@ const sectionGroups = [
   { title: "Derivative Opportunities", items: riverbendExample.derivativeOpportunities },
 ];
 
+const blogTemplateReference = {
+  selectedTemplateId: "blog-longform-standard-v1",
+  availableTemplates: ["blog-longform-standard-v1", "blog-neighborhood-focus-v1"],
+  status: "Scaffold only: no text generation",
+};
+
 export default function ContentBlueprintPage() {
   return (
     <>
@@ -103,6 +109,33 @@ export default function ContentBlueprintPage() {
           </article>
         ))}
       </div>
+
+      <section className="module-shell" style={{ marginTop: 14 }}>
+        <h2 style={{ margin: 0, color: "#143256" }}>Blog Template Reference</h2>
+        <p className="module-description">
+          Blueprint records can reference a blog template from the draft template library. This is review-only wiring
+          and does not generate content.
+        </p>
+        <div className="module-note" style={{ marginTop: 12 }}>
+          Selected Template: {blogTemplateReference.selectedTemplateId}
+        </div>
+        <div className="card-grid" style={{ marginTop: 12 }}>
+          <article className="card">
+            <h3>Available Templates</h3>
+            <ul style={{ margin: "8px 0 0 18px", padding: 0, color: "#4c607a" }}>
+              {blogTemplateReference.availableTemplates.map((templateId) => (
+                <li key={templateId} style={{ marginBottom: 6 }}>
+                  {templateId}
+                </li>
+              ))}
+            </ul>
+          </article>
+          <article className="card">
+            <h3>Status</h3>
+            <p>{blogTemplateReference.status}</p>
+          </article>
+        </div>
+      </section>
 
       <section className="module-shell" style={{ marginTop: 14 }}>
         <h2 style={{ margin: 0, color: "#143256" }}>Reconciliation Review Buckets</h2>

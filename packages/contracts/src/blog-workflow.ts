@@ -1,4 +1,5 @@
 import type { DraftContractMeta } from "./content-blueprint";
+import type { BlogTemplateContract } from "./blog-template";
 
 export interface BlogImageSlot {
   slotId: string;
@@ -23,16 +24,7 @@ export interface BlogSectionStructure {
   imageSlots?: BlogImageSlot[];
 }
 
-export interface BlogTemplateStructure {
-  templateId: string;
-  templateName: string;
-  channel: "blog";
-  blueprintSectionRefs?: string[];
-  lifecycle: DraftContractMeta;
-  audienceHint?: string;
-  toneHint?: string;
-  sections: BlogSectionStructure[];
-}
+export type BlogTemplateStructure = BlogTemplateContract;
 
 export interface BlogBriefInputStructure {
   briefId: string;

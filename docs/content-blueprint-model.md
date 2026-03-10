@@ -31,6 +31,10 @@ Channel deliverables are derivative outputs from a blueprint, not independent so
 ## Output Shape Rule
 All derived outputs should use section-based structures, not monolithic document blobs.
 
+## Blog Template Linkage (Draft)
+- Blueprint review scaffolding supports referencing a blog template ID.
+- Blog template contracts are defined in `packages/contracts/src/blog-template.ts`.
+
 ## Current Contract Location
 - `packages/contracts/src/content-blueprint.ts`
 - `packages/contracts/src/blog-workflow.ts` (blog-specific derivative structure)

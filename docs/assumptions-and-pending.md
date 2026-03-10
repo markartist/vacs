@@ -28,3 +28,4 @@
   - workflow stage/status normalization
 - Reconciliation pending:
   - Alex narrative confirmation across spreadsheet + mapping + blueprint model
+  - Blog template selection and versioning workflow confirmation
