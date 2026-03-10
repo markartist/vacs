@@ -2,13 +2,14 @@
 
 ```text
 apps/
-  api/
+  api/                # Cloudflare Worker: auth, sessions, protected routes
+  web/                # Login + authenticated shell
 packages/
-  contracts/
-  prompts/
-  policies/
-  core/
-  clients/
+  contracts/          # Shared schemas/data contracts
+  prompts/            # Prompt assets and versioning
+  policies/           # SEO/brand/policy rules
+  core/               # Shared business logic
+  clients/            # Service adapters/wrappers
 governance/
   roadmap/
   decisions/
@@ -19,4 +20,4 @@ docs/
 scripts/
 ```
 
-Design intent: keep runtime code isolated from governance and planning while enabling modular growth.
+Design intent: keep runtime implementation (`apps`) isolated from governance and modular shared assets (`packages`).

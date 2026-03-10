@@ -1,30 +1,38 @@
 # Cloudflare Environment Setup
 
-## Intended Hostname
+## Intended Runtime Hostname
 - `vacs.venterradev.com`
 
-## Worker
-- App: `apps/api`
-- Wrangler config: `apps/api/wrangler.toml`
+## API Worker
+- Config: `apps/api/wrangler.toml`
+- Production route prepared:
+  - `vacs.venterradev.com/*`
 
-## Required Cloudflare Resources (Prepared as placeholders)
-- D1: `VACS_DB`
-- R2: `VACS_ASSETS`
-- Vectorize: `VACS_VECTOR_INDEX`
-- Queues: `VACS_GENERATION_QUEUE`
-- AI Gateway: `AI_GATEWAY_BASE_URL` var
+## Auth Data Store
+- D1 table migration file:
+  - `apps/api/migrations/0001_auth.sql`
 
-## Setup Notes
-1. Create resources in Cloudflare account.
-2. Replace placeholder IDs/names in wrangler config.
-3. Configure production route for `vacs.venterradev.com`.
-4. Deploy with:
-   ```bash
-   cd apps/api
-   npx wrangler deploy --env production
-   ```
+Apply when D1 is provisioned:
+```bash
+cd apps/api
+npx wrangler d1 migrations apply vacs-db --local
+```
 
-## What Is Not Final
-- Final binding names
-- Final queue topology
-- Final AI gateway routing strategy
+## Session and Email Secrets
+Set with Wrangler:
+```bash
+cd apps/api
+npx wrangler secret put SESSION_SIGNING_SECRET
+```
+
+(Provider-specific secrets as needed later.)
+
+## Prepared Future Bindings
+- D1
+- KV
+- R2
+- Vectorize
+- Queues
+- AI Gateway vars
+
+These are scaffolded for future phases; business logic is intentionally deferred.

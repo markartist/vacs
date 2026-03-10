@@ -1,14 +1,28 @@
 # Deployment Notes
 
-## Current posture
-- Foundation deploy only (`/health` endpoint)
-- No production business logic yet
+## Scope of Current Deployables
+- API Worker (authentication/session/protected routes)
+- Web shell (login + app shell)
 
-## Suggested deployment flow
-1. Validate config
-2. Deploy staging/dev
-3. Verify `/health`
-4. Deploy production route env
+## API Deploy
+```bash
+cd apps/api
+npx wrangler deploy --env production
+```
 
-## Post-deploy validation
-- `GET https://vacs.venterradev.com/health` returns status `ok`
+Validate:
+- `GET https://vacs.venterradev.com/health`
+
+## Web Deploy
+Current repository includes app shell implementation in `apps/web`.
+Deployment target (Cloudflare Pages or equivalent) should be finalized in planning.
+
+## Routing Expectation
+- Public login/auth routes accessible without session
+- Protected `/app/*` routes require valid session
+- API validates session state for protected endpoints
+
+## Deferred
+- Content generation runtime
+- Queue-driven orchestration
+- Evaluation workflows

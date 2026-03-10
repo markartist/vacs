@@ -8,8 +8,9 @@
     "packages/*"
   ],
   "scripts": {
-    "typecheck": "npm run -w @vacs/api typecheck",
+    "typecheck": "npm run -w @vacs/api typecheck && npm run -w @vacs/web typecheck",
     "dev:api": "npm run -w @vacs/api dev",
+    "dev:web": "npm run -w @vacs/web dev",
     "deploy:api": "npm run -w @vacs/api deploy"
   },
   "engines": {

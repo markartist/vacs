@@ -3,6 +3,7 @@ set -euo pipefail
 
 required=(
   "apps/api"
+  "apps/web"
   "packages/contracts"
   "packages/prompts"
   "packages/policies"

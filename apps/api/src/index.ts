@@ -1,44 +1,31 @@
-export interface Env {
-  APP_NAME: string;
-  APP_ENV: string;
-  AI_GATEWAY_BASE_URL?: string;
-  AI_GATEWAY_ENABLED?: string;
+import { Hono } from "hono";
+import { Env, Variables } from "./types/env";
+import { corsMiddleware } from "./middleware/cors";
+import { auth } from "./routes/auth";
+import { appRoutes } from "./routes/app";
 
-  VACS_DB?: D1Database;
-  VACS_ASSETS?: R2Bucket;
-  VACS_VECTOR_INDEX?: VectorizeIndex;
-  VACS_GENERATION_QUEUE?: Queue;
-}
+const app = new Hono<{ Bindings: Env; Variables: Variables }>();
 
-function jsonResponse(data: unknown, status = 200): Response {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: {
-      "content-type": "application/json; charset=utf-8"
-    }
-  });
-}
+app.use("*", corsMiddleware);
 
-export default {
-  async fetch(request: Request, env: Env): Promise<Response> {
-    const url = new URL(request.url);
+app.get("/health", (c) =>
+  c.json({
+    status: "ok",
+    service: "vacs-api",
+    mode: "auth-shell",
+    env: c.env.APP_ENV ?? "unknown",
+    timestamp: new Date().toISOString(),
+  })
+);
 
-    if (request.method === "GET" && url.pathname === "/health") {
-      return jsonResponse({
-        status: "ok",
-        service: "vacs-api",
-        mode: "foundation",
-        env: env.APP_ENV ?? "unknown",
-        timestamp: new Date().toISOString()
-      });
-    }
+app.route("/auth", auth);
+app.route("/app", appRoutes);
 
-    return jsonResponse(
-      {
-        error: "NOT_FOUND",
-        message: "Route not found"
-      },
-      404
-    );
-  }
-} satisfies ExportedHandler<Env>;
+app.notFound((c) => c.json({ error: "NOT_FOUND", message: "Route not found" }, 404));
+
+app.onError((err, c) => {
+  console.error("Unhandled API error", err);
+  return c.json({ error: "INTERNAL_ERROR", message: "Unexpected error" }, 500);
+});
+
+export default app;

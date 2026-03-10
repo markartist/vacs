@@ -6,14 +6,33 @@ workers_dev = true
 [vars]
 APP_NAME = "Venterra AI Content Suite"
 APP_ENV = "development"
+API_BASE_URL = "http://localhost:8787"
+FRONTEND_BASE_URL = "http://localhost:3000"
+ALLOWED_EMAIL_DOMAIN = "venterraliving.com"
+ENFORCE_CORPORATE_EMAIL = "false"
+MAGIC_LINK_TTL_MINUTES = "20"
+SESSION_TTL_DAYS = "7"
+COOKIE_DOMAIN = ""
+EMAIL_PROVIDER = "console"
+EMAIL_FROM = "noreply@venterradev.com"
 AI_GATEWAY_BASE_URL = "https://gateway.ai.cloudflare.com/v1/<account_id>/<gateway_id>"
 AI_GATEWAY_ENABLED = "false"
 
-# Prepared bindings (placeholders) for future implementation.
+# Secrets (set via `wrangler secret put`)
+# SESSION_SIGNING_SECRET
+# RESEND_API_KEY
+# SENDGRID_API_KEY
+# AWS_SES_SMTP_USERNAME
+# AWS_SES_SMTP_PASSWORD
+
 [[d1_databases]]
 binding = "VACS_DB"
 database_name = "vacs-db"
 database_id = "REPLACE_WITH_D1_DATABASE_ID"
+
+[[kv_namespaces]]
+binding = "VACS_AUTH_KV"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
 
 [[r2_buckets]]
 binding = "VACS_ASSETS"
@@ -32,7 +51,6 @@ queue = "vacs-generation"
 max_batch_size = 10
 max_batch_timeout = 5
 
-# Production route posture for intended hostname.
 [env.production]
 workers_dev = false
 routes = [
@@ -41,4 +59,8 @@ routes = [
 
 [env.production.vars]
 APP_ENV = "production"
+API_BASE_URL = "https://vacs.venterradev.com"
+FRONTEND_BASE_URL = "https://vacs.venterradev.com"
+ENFORCE_CORPORATE_EMAIL = "true"
 AI_GATEWAY_ENABLED = "true"
+EMAIL_PROVIDER = "resend"

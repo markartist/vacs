@@ -3,21 +3,29 @@
 ## Prerequisites
 - Node.js 20.x
 - npm 10+
-- Wrangler CLI (installed via workspace package)
 
 ## Install
-From repo root:
-
 ```bash
 npm install
 ```
 
-## Run API Worker locally
+## Run API (Worker)
 ```bash
 npm run dev:api
 ```
 
-Health check:
+## Run Web
 ```bash
-curl http://127.0.0.1:8787/health
+npm run dev:web
 ```
+
+## Health Check
+```bash
+curl http://localhost:8787/health
+```
+
+## Login Test (Setup Mode)
+1. Open `http://localhost:3000/login`
+2. Enter email and request magic link
+3. Use returned `preview_link` in development (console provider)
+4. Confirm redirect into `/app/dashboard`
