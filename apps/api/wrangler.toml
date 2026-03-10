@@ -1,0 +1,44 @@
+name = "vacs-api"
+main = "src/index.ts"
+compatibility_date = "2026-03-10"
+workers_dev = true
+
+[vars]
+APP_NAME = "Venterra AI Content Suite"
+APP_ENV = "development"
+AI_GATEWAY_BASE_URL = "https://gateway.ai.cloudflare.com/v1/<account_id>/<gateway_id>"
+AI_GATEWAY_ENABLED = "false"
+
+# Prepared bindings (placeholders) for future implementation.
+[[d1_databases]]
+binding = "VACS_DB"
+database_name = "vacs-db"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+
+[[r2_buckets]]
+binding = "VACS_ASSETS"
+bucket_name = "vacs-assets"
+
+[[vectorize]]
+binding = "VACS_VECTOR_INDEX"
+index_name = "vacs-index"
+
+[[queues.producers]]
+binding = "VACS_GENERATION_QUEUE"
+queue = "vacs-generation"
+
+[[queues.consumers]]
+queue = "vacs-generation"
+max_batch_size = 10
+max_batch_timeout = 5
+
+# Production route posture for intended hostname.
+[env.production]
+workers_dev = false
+routes = [
+  { pattern = "vacs.venterradev.com/*", zone_name = "venterradev.com" }
+]
+
+[env.production.vars]
+APP_ENV = "production"
+AI_GATEWAY_ENABLED = "true"

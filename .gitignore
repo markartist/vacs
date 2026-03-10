@@ -1,0 +1,34 @@
+# Node / TypeScript
+node_modules/
+dist/
+.build/
+*.tsbuildinfo
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/
+
+# Wrangler / Cloudflare
+.wrangler/
+.dev.vars
+
+# Test / coverage
+coverage/
+.nyc_output/
+
+# Generated artifacts
+tmp/
+
