@@ -21,9 +21,19 @@
 ## Frontend Env (`apps/web/.env.local`)
 - `NEXT_PUBLIC_API_BASE_URL`
 
-## Cloudflare Bindings (prepared for future)
+## Cloudflare Bindings
+- Required for production auth/session:
+  - D1: `VACS_DB`
+- Prepared for future modules:
 - D1: `VACS_DB`
 - KV: `VACS_AUTH_KV`
 - R2: `VACS_ASSETS`
 - Vectorize: `VACS_VECTOR_INDEX`
 - Queue: `VACS_GENERATION_QUEUE`
+
+## Recommended Production Values
+- `APP_ENV=production`
+- `API_BASE_URL=https://vacs.venterradev.com`
+- `FRONTEND_BASE_URL=https://vacs.venterradev.com`
+- `ENFORCE_CORPORATE_EMAIL=true` (when policy goes live)
+- `EMAIL_PROVIDER=resend` or `EMAIL_PROVIDER=sendgrid`

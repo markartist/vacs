@@ -5,9 +5,9 @@ Venterra AI Content Suite is a Cloudflare-native platform in preparation for gen
 ## Current Goal
 The repository is in **setup/preparation mode** with a working authenticated application environment:
 - Magic-link authentication (Worker)
-- Signed session cookies
+- Signed session cookies backed by persistent D1 sessions
 - Protected routes
-- Internal dashboard shell UI
+- Internal reusable app shell UI with scaffold module destinations
 
 The content-generation pipeline is intentionally not implemented yet.
 
@@ -47,7 +47,7 @@ Modular stage model (directional, not final):
 - `/app/*` web shell protected by session check middleware
 
 ## Setup Mode Notes
-- Email provider defaults to `console` (magic links logged/returned in dev)
+- Email provider defaults to `console` in local mode; `resend` and `sendgrid` provider integrations are implemented for production configuration
 - Domain restriction (`@venterraliving.com`) is prepared via env flags and can be enforced later
 
 ## Quick Start

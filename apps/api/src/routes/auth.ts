@@ -1,6 +1,6 @@
 import { Hono } from "hono";
 import { Env, Variables } from "../types/env";
-import { authStoreFromEnv, newMagicLinkRecord } from "../auth/store";
+import { authStoreFromEnv, newMagicLinkRecord, sessionExpiresAt } from "../auth/store";
 import { isEmailAllowed, magicLinkTtlMinutes, normalizeEmail } from "../auth/config";
 import { minutesFromNowIso, nowIso } from "../utils/time";
 import { randomToken, sha256Hex } from "../utils/crypto";
@@ -11,7 +11,13 @@ import {
   parseCookieHeader,
   sessionCookieName,
 } from "../utils/cookies";
-import { cookieDomain, createSignedSession, secureCookieForRequest, verifySignedSession } from "../auth/session";
+import {
+  cookieDomain,
+  createSignedSession,
+  secureCookieForRequest,
+  sessionTtlDays,
+  verifySignedSession,
+} from "../auth/session";
 
 const auth = new Hono<{ Bindings: Env; Variables: Variables }>();
 
@@ -76,9 +82,25 @@ auth.get("/verify", async (c) => {
     return c.redirect(`${c.env.FRONTEND_BASE_URL}/login?error=invalid_or_expired`, 302);
   }
 
-  const sessionValue = await createSignedSession(record.email, c.env);
+  const expiresAt = sessionExpiresAt(sessionTtlDays(c.env));
+  const store = authStoreFromEnv(c.env);
+  const persistedSession = await store.createSession({
+    email: record.email,
+    expiresAt,
+    requestIp: c.req.header("CF-Connecting-IP") ?? null,
+    userAgent: c.req.header("user-agent") ?? null,
+  });
+
+  const sessionValue = await createSignedSession(
+    {
+      sid: persistedSession.id,
+      email: persistedSession.email,
+      exp: persistedSession.expiresAt,
+    },
+    c.env
+  );
   const secure = secureCookieForRequest(c.req.raw);
-  const maxAgeSeconds = Number(c.env.SESSION_TTL_DAYS ?? "7") * 24 * 60 * 60;
+  const maxAgeSeconds = sessionTtlDays(c.env) * 24 * 60 * 60;
 
   c.header(
     "Set-Cookie",
@@ -93,6 +115,13 @@ auth.get("/verify", async (c) => {
 });
 
 auth.post("/logout", async (c) => {
+  const cookies = parseCookieHeader(c.req.header("cookie") ?? null);
+  const raw = cookies[sessionCookieName()];
+  const payload = raw ? await verifySignedSession(raw, c.env) : null;
+  if (payload) {
+    await authStoreFromEnv(c.env).revokeSession(payload.sid, nowIso());
+  }
+
   const secure = secureCookieForRequest(c.req.raw);
   c.header("Set-Cookie", clearSessionCookie({ secure, domain: cookieDomain(c.env) }));
   return c.json({ ok: true });
@@ -107,7 +136,12 @@ auth.get("/session", async (c) => {
   const payload = await verifySignedSession(raw, c.env);
   if (!payload) return c.json({ authenticated: false }, 401);
 
-  return c.json({ authenticated: true, email: payload.email, exp: payload.exp });
+  const activeSession = await authStoreFromEnv(c.env).getActiveSession(payload.sid, nowIso());
+  if (!activeSession || activeSession.email !== payload.email) {
+    return c.json({ authenticated: false }, 401);
+  }
+
+  return c.json({ authenticated: true, email: payload.email, exp: payload.exp, sid: payload.sid });
 });
 
 export { auth };

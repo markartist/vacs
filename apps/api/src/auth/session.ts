@@ -5,9 +5,10 @@ import {
   signHmacSha256,
   verifyHmacSha256,
 } from "../utils/crypto";
-import { daysFromNowIso, nowIso } from "../utils/time";
+import { nowIso } from "../utils/time";
 
 export interface SessionPayload {
+  sid: string;
   email: string;
   iat: string;
   exp: string;
@@ -27,10 +28,14 @@ export function cookieDomain(env: Env): string | undefined {
   return domain.length > 0 ? domain : undefined;
 }
 
-export async function createSignedSession(email: string, env: Env): Promise<string> {
+export async function createSignedSession(input: { sid: string; email: string; exp: string }, env: Env): Promise<string> {
   const iat = nowIso();
-  const exp = daysFromNowIso(sessionTtlDays(env));
-  const payload: SessionPayload = { email, iat, exp };
+  const payload: SessionPayload = {
+    sid: input.sid,
+    email: input.email,
+    iat,
+    exp: input.exp,
+  };
   const encodedPayload = encodeBase64UrlJson(payload);
   const secret = env.SESSION_SIGNING_SECRET;
   if (!secret) {
@@ -56,7 +61,7 @@ export async function verifySignedSession(raw: string, env: Env): Promise<Sessio
     return null;
   }
 
-  if (!payload.email || !payload.exp) return null;
+  if (!payload.sid || !payload.email || !payload.exp) return null;
   if (payload.exp <= nowIso()) return null;
   return payload;
 }
