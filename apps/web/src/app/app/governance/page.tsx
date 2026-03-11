@@ -1,10 +1,5 @@
-import { ModulePlaceholder } from "../../../components/module-placeholder";
+import { PilotReconciliationSurface } from "../../../components/pilot-reconciliation-surface";
 
 export default function GovernancePage() {
-  return (
-    <ModulePlaceholder
-      title="Governance"
-      description="Architecture decisions, approvals, and review workflows will be surfaced in this module."
-    />
-  );
+  return <PilotReconciliationSurface />;
 }

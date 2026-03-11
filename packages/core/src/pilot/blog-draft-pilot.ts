@@ -51,6 +51,23 @@ export function buildPilotBlogDraft(
       mode: "placeholder",
       notes: "No AI generation executed in pilot scaffold mode.",
     },
+    humanReview: {
+      draftId: "pilot-blog-draft-001",
+      revisionStatus: "not_started",
+      reviewNotes: [],
+      reviewerMarkers: [
+        { reviewerIdentityPlaceholder: "seo_reviewer@placeholder", completed: false },
+        { reviewerIdentityPlaceholder: "content_editor@placeholder", completed: false },
+      ],
+      approvalMarker: {
+        approved: false,
+      },
+      lifecycle: {
+        status: "draft",
+        source: "pending_artifact_review",
+        notes: "Human review scaffold only.",
+      },
+    },
     workflowState: "blog_template_selected",
     lifecycle: {
       status: "draft",

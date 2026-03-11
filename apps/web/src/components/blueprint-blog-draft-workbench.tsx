@@ -49,6 +49,12 @@ export function BlueprintBlogDraftWorkbench() {
         mode: "placeholder",
         notes: "No generation run executed.",
       },
+      humanReview: {
+        revisionStatus: "not_started",
+        reviewNotes: [] as string[],
+        reviewerIdentityPlaceholders: ["seo_reviewer@placeholder", "content_editor@placeholder"],
+        approvalMarker: "approved=false",
+      },
     };
   }, [selectedTemplateId]);
 
@@ -129,6 +135,22 @@ export function BlueprintBlogDraftWorkbench() {
               ))}
             </ul>
           )}
+        </article>
+        <article className="card">
+          <h3>Human Review Placeholders</h3>
+          <ul style={{ margin: "8px 0 0 18px", padding: 0, color: "#4c607a" }}>
+            <li>revision status: {draftObjectPreview.humanReview.revisionStatus}</li>
+            <li>review notes: empty list</li>
+            <li>approval marker: {draftObjectPreview.humanReview.approvalMarker}</li>
+          </ul>
+          <p style={{ marginTop: 10, color: "#4c607a", fontWeight: 600 }}>reviewer identities</p>
+          <ul style={{ margin: "6px 0 0 18px", padding: 0, color: "#4c607a" }}>
+            {draftObjectPreview.humanReview.reviewerIdentityPlaceholders.map((item) => (
+              <li key={item} style={{ marginBottom: 6 }}>
+                {item}
+              </li>
+            ))}
+          </ul>
         </article>
       </div>
     </section>

@@ -48,3 +48,5 @@ All derived outputs should use section-based structures, not monolithic document
 - `governance/plans/blueprint-reconciliation-plan.md`
 - `governance/research/methodology-intake/mapping-notes/reconciliation-matrix-template.md`
 - `governance/research/methodology-intake/references/riverbend-blueprint-example-record.draft.json`
+- Governance UI reconciliation surface:
+  - `apps/web/src/app/app/governance/page.tsx`

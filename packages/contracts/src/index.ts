@@ -4,4 +4,5 @@ export * from "./content-job";
 export * from "./content-blueprint";
 export * from "./blog-template";
 export * from "./blog-draft";
+export * from "./blog-review";
 export * from "./blog-workflow";

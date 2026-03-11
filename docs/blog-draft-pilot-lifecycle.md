@@ -15,6 +15,8 @@ Status: scaffold-only, no generation runtime.
 ## Object Contracts
 - Blog draft object contract:
   - `packages/contracts/src/blog-draft.ts`
+- Blog draft human review contract:
+  - `packages/contracts/src/blog-review.ts`
 - Blog template contract:
   - `packages/contracts/src/blog-template.ts`
 - Blueprint contract:
@@ -22,4 +24,5 @@ Status: scaffold-only, no generation runtime.
 
 ## Pilot Notes
 - `Blog draft generated` is represented as a placeholder structure in this phase.
+- Human review is represented with revision status, review notes, reviewer identity placeholders, and approval markers.
 - Prompt orchestration and AI generation are intentionally not implemented.

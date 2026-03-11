@@ -30,3 +30,4 @@
 - Reconciliation pending:
   - Alex narrative confirmation across spreadsheet + mapping + blueprint model
   - Blog template selection and versioning workflow confirmation
+  - Reviewer assignment and approval policy for pilot draft governance

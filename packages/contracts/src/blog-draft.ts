@@ -1,4 +1,5 @@
 import type { DraftContractMeta } from "./content-blueprint";
+import type { BlogDraftHumanReview } from "./blog-review";
 
 export type BlogDraftWorkflowState =
   | "blueprint_created"
@@ -36,6 +37,7 @@ export interface BlogDraftObject {
   structuredSectionOutputs: BlogDraftSectionOutput[];
   imageSlotReferences: string[];
   generationMetadata: BlogDraftGenerationMetadataPlaceholder;
+  humanReview?: BlogDraftHumanReview;
   workflowState: BlogDraftWorkflowState;
   lifecycle: DraftContractMeta;
 }

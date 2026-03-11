@@ -64,6 +64,8 @@ Modular stage model (directional, not final):
   - `packages/contracts/src/blog-template.ts`
 - Draft blog draft contracts:
   - `packages/contracts/src/blog-draft.ts`
+- Draft blog review contracts:
+  - `packages/contracts/src/blog-review.ts`
 - Draft translation layer:
   - `packages/core/src/blueprint-intake.ts`
 - Draft template library scaffold:
@@ -78,6 +80,7 @@ Modular stage model (directional, not final):
   - `docs/content-blueprint-model.md`
   - `docs/blog-template-library.md`
   - `docs/blog-draft-pilot-lifecycle.md`
+  - `docs/pilot-methodology-to-approved-draft-flow.md`
   - `docs/blog-methodology-intake.md`
   - `docs/methodology-translation-path.md`
   - `docs/spreadsheet-blueprint-translation-layer.md`
